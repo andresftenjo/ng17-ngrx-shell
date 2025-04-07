@@ -1,0 +1,70 @@
+<p-dialog header="{{ accountSelectTitle }}" class="account-selector-modal" [modal]="true" [(visible)]="displayModal"
+    [draggable]="false" [closable]="true" (onHide)="closeModel()" [baseZIndex]="3">
+
+    <div class="account-selector-modal__container card">
+        <!-- <p-skeleton width="10rem" height="1.5rem" /> -->
+        <h4 class="account-selector-modal__subtitle">{{ 'accountSelectInputLabel' | translate }}</h4>
+        <div class="">
+            <!-- <p-skeleton class="skeleton__selector"  width="80vw" height="4rem" /> -->
+        </div>
+        <div class="account-selector-modal__changeAccount">
+            <p-dropdown class="font-adjustment" [options]="accounts" appendTo="body" optionLabel="AccountName"
+                [baseZIndex]="10" (onChange)="selectAccount($event)">
+            </p-dropdown>
+            <div class="account-selector-modal__changeAccount__selectIcon">
+                <i class="pi pi-user"></i>
+            </div>
+        </div>
+
+        <h4 class="account-selector-modal__subtitle">{{ 'addressSelectInputLabel' | translate }}</h4>
+        <!-- <p-skeleton width="80vw" height="2.5rem" /> -->
+        <div class="account-selector-modal__changeAddress">
+
+            <p-listbox filterPlaceHolder="{{ 'findLabel' | translate }}..." [options]="recipients" optionLabel="title"
+                [filter]="true" [style]="{ width: '100%' }" [listStyle]="{'max-height': '220px'}">
+                <ng-template let-address pTemplate="item">
+                    <div class="account-selector-modal__changeAddress__itemsContainer" (click)="selectAddress(address)"
+                        [ngClass]="address.Selected ? 'selected' : ''">
+                        <div class="flex align-items-center">
+                            @if(isloading){
+                            <div class="skeleton">
+                                <p-skeleton class="skeleton__item-menu" shape="circle" width="40px" height="40px" />
+                                <div>
+                                    <p-skeleton width="15rem" height="2rem" />
+                                    <p-skeleton width="10rem" height="1.5rem" />
+                                </div>
+                            </div>
+                            }@else {
+
+                            <div class="account-selector-modal__changeAddress__icon">
+                                <i class="pi pi-map-marker"></i>
+                            </div>
+                            <div class="account-selector-modal__changeAddress__description">
+                                <p class="account-selector-modal__changeAddress__description__title">{{
+                                    accountTitle(address) }}</p>
+                                <p class="account-selector-modal__changeAddress__description__subtitle">{{
+                                    address.Address }}</p>
+                            </div>
+                            }
+
+                        </div>
+                        <div class="account-selector-modal__changeAddress__selectIcon">
+                            <label class="account-selector-modal__changeAddress__selectIconLabel">
+                                <input type="radio" name="radioMenu" class="" checked />
+                                <span class="account-selector-modal__changeAddress__selectIconLabel--checkmark"></span>
+                            </label>
+                        </div>
+                    </div>
+                </ng-template>
+            </p-listbox>
+
+        </div>
+    </div>
+
+
+    <div class="account-selector-modal__buttons">
+        <p-button class="account-selector-modal__buttons--on backgroundPrimary" label="Aceptar"
+            (click)="finishAccountSelected()"></p-button>
+    </div>
+
+</p-dialog>

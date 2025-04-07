@@ -1,0 +1,29 @@
+@import "../settings/variables";
+
+p-button {
+    border-radius: 3.6px;
+}
+
+.p-button {
+    border: none;
+}
+
+.p-button .p-button-icon {
+    color: var(--buttonsFont-color);
+}
+
+.btn {
+    border-radius: 3.6px;
+    padding: 0.5rem 2rem;
+    border: 0;
+    cursor: pointer;
+    font-weight: 700;
+    &--primary {
+        background-color: $primaryStore;
+        color: $buttonsFontStore;
+    }
+    &--secondary {
+        background-color: $secondaryStore;
+        color: $buttonsFontStore;
+    }
+}

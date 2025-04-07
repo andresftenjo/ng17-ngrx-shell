@@ -1,0 +1,78 @@
+@import "../../../../scss/variables";
+@import "../../../../scss/mixins";
+
+body {
+    margin: 0;
+    padding: 0;
+}
+header, footer, nav, main {
+    padding: 20px;
+}
+header, footer {
+    text-align: center;
+}
+header {
+    height: 53px;
+}
+nav {
+    width: 200px;
+    float: left;
+    background-color: #ddd;
+}
+main {
+    &.shortMenu {
+        margin-left: 72px;
+
+        .wrap-main { 
+            margin-left: 0;
+        }
+    }
+    @include media(1050){
+        margin-left: auto;
+        margin-top: 0.5rem;
+    }
+}
+footer {
+    margin-left: 242px;
+    background-color: #fff;
+    &.shortMenu {
+        margin-left: 72px;
+    }
+    @include media(1050){
+        margin-left: auto;
+    }
+}
+
+.wrap-main {
+    padding: 30px;
+    margin-left: 250px;
+    transition: .5s cubic-bezier(.175,.885,.32,1.15);
+    position: relative;
+
+    @include media(1050){
+        margin-left: 0;
+    }
+
+    @include media(768){
+        padding-top: 10px;
+        padding: 0px;
+    }
+}
+
+.bread-crumbs{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+:host ::ng-deep .p-card-content{
+    padding: 0;
+}
+
+.main-tabs{
+    border-bottom: 1px solid #DFE0EB;
+    margin-bottom: 25px;
+    margin-top: 32px;
+    display: flex;
+}
+

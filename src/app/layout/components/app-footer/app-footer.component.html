@@ -1,0 +1,27 @@
+<footer class="argos-footer">
+    <p>
+      {{ 'copyRightDescription' | translate }}
+    </p>
+    <div class="argos-footer__box">
+      <a href="javascript:void(0)" (click)="showTermsConditions()">
+        {{ 'termsConditionsTitle' | translate }}
+      </a>
+    </div>
+  </footer> 
+
+  <p-dialog 
+    header="{{ 'termsConditionsTitle' | translate }}"
+    class="argos-footer__termsModal"
+    [modal]="true"
+    [(visible)]="displayTermsConditions"
+    [draggable]="false"
+    [closable]="true"
+    (onHide)="closeTermsConditions()"
+    [baseZIndex]="3">
+
+    <div class="argos-footer__termsConditions" [innerHTML]="'termsConditionContent' | translate">
+    </div>
+    <div class="argos-footer__buttons">
+        <p-button class="argos-footer__buttons--on backgroundPrimary" [label]="'closeButtonLabel' | translate" (click)="closeTermsConditions()"></p-button>
+    </div>
+  </p-dialog>

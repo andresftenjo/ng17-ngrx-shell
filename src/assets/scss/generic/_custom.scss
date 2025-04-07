@@ -1,0 +1,353 @@
+/*  HTML, CSS, y librerias personalizadas */
+li {
+    list-style: none;
+
+    a {
+        text-decoration: none;
+
+        &:hover,
+        &:focus {
+            text-decoration: none;
+        }
+    }
+}
+
+/* Estilos para modificar colores de los Radio buttons */
+.p-radiobutton .p-radiobutton-box.p-highlight {
+    border-color: $green;
+    background: $green;
+}
+
+.p-radiobutton .p-radiobutton-box.p-highlight:not(.p-disabled):hover {
+    border-color: darken($green, 5%);
+    background: darken($green, 5%);
+    color: #ffffff;
+}
+
+.p-radiobutton .p-radiobutton-box:not(.p-disabled):not(.p-highlight):hover {
+    border-color: $green;
+}
+
+.p-button.p-button-icon-only.p-button-rounded {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: auto;
+
+    .p-button-icon {
+        color: $secondary;
+    }
+}
+
+/* Cierre Estilos para modificar colores de los Radio buttons */
+
+/* Estilo de las card Prime */
+.p-card {
+    box-shadow: none;
+    border: 1px solid $stroke;
+    border-radius: 6px;
+}
+
+.review {
+
+    &__box {
+
+        &__card {
+
+            .p-card.p-component {
+                height: 100%;
+            }
+
+            .p-card .p-card-content {
+                padding-top: 0;
+            }
+        }
+    }
+
+    &__component {
+        width: 33.33%;
+        padding: 8px;
+
+        @include media(1200) {
+            width: 50%;
+        }
+
+        @include media(768) {
+            width: 100%;
+        }
+    }
+}
+
+/* Cierre Estilo de las card Prime */
+
+/* Estilos para el Spinner ---------- */
+.spinner-dad {
+    position: relative;
+}
+
+.spinner {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 20;
+
+    &__overlay {
+        background-color: rgba(255, 255, 255, 0.9);
+        height: 100%;
+        @include flex;
+        @include align-items(center);
+        @include justify-content(center);
+
+        &--glass {
+            background-color: transparent;
+        }
+    }
+}
+
+.custom-spinner .p-progress-spinner-circle {
+    stroke: $green;
+    stroke-width: 3;
+    animation: custom-progress-spinner-dash 1.5s ease-in-out infinite,
+        custom-progress-spinner-color 6s ease-in-out infinite;
+}
+
+.flex {
+    display: flex;    
+}
+.align-items-center {
+    align-items: center;
+}
+
+.loader-bar{
+    position: absolute;
+    top: 0;
+    width: 100%;
+
+    .p-progressbar{
+        height: 12px;
+    }
+
+    .p-progressbar-value{
+        background: $secondary;
+      }
+}
+
+@keyframes custom-progress-spinner-color {
+
+    100%,
+    0% {
+        stroke: $green;
+    }
+
+    40% {
+        stroke: $secondary;
+    }
+
+    66% {
+        stroke: $darkBlue;
+    }
+
+    80%,
+    90% {
+        stroke: $orange;
+    }
+}
+
+@keyframes custom-progress-spinner-dash {
+    0% {
+        stroke-dasharray: 1, 200;
+        stroke-dashoffset: 0;
+    }
+
+    50% {
+        stroke-dasharray: 89, 200;
+        stroke-dashoffset: -35px;
+    }
+
+    100% {
+        stroke-dasharray: 89, 200;
+        stroke-dashoffset: -124px;
+    }
+}
+
+/* Cierre Estilos para el Spinner */
+
+/*  Estilos para el Fieldset de Prime -------- */
+.p-fieldset {
+    border-radius: 6px;
+}
+
+/*  Cierre Estilos para el Fieldset de Prime */
+
+.input_number_load input.p-inputnumber-input {
+    width: 100%;
+}
+
+.p-dialog {
+    min-width: 52vw;
+
+    @include media(600) {
+        min-width: 90%;
+    }
+
+    @include media(400) {
+        min-width: 98%;
+        margin: 0 10px;
+    }
+}
+
+.error-span-date {
+    color: $secondary;
+    font-size: 12px;
+    position: absolute;
+    display: block;
+}
+
+table>tbody>tr>td:nth-child(5)>p-inputnumber>span,
+table>tbody>tr>td:nth-child(5)>p-inputnumber>span>input {
+    width: 100px !important;
+}
+
+/* Steps */
+.app-form-steps {
+    .p-element {
+
+        .p-steps {
+            ul {
+                li {
+                    .p-steps-number{
+                        background-color: $secondary;
+                        color: $white;
+                    }
+
+
+                    .p-steps-title{
+                        font-size: 20px;
+
+                        @include media(768){
+                            font-size: 16px;
+                        }
+                        @include media(550){
+                            display: none;
+                        }
+                    }
+
+                    &::before{
+                        @include media(550){
+                            display: none;
+                        }
+                    }
+                }
+            }
+
+            .p-disabled {
+                background-color: transparent !important;
+
+                .p-menuitem-link .p-steps-number{
+                    background: $softGrey2;
+                    color: $silverTwo;
+                }
+            }
+
+        }
+    }
+}
+/* loader progressbar */
+.loader-bar{
+    position: absolute;
+    top: 0;
+    width: 100%;
+
+    .p-progressbar{
+        height: 12px;
+    }
+
+    .p-progressbar-value{
+        background: #3182ce;
+      }
+}
+
+app-progress-bar {
+    top: 0;
+    position: absolute;
+    width: 100%;
+    z-index: 40;
+}
+/* Checks */
+.p-checkbox .p-checkbox-box.p-highlight{
+    background-color: $green;
+    border-color: $green;
+}
+
+.p-checkbox:not(.p-checkbox-disabled) .p-checkbox-box:hover{
+    border-color: $green;
+}
+
+/* Tabs */
+.p-tabmenu .p-tabmenu-nav{
+    @include media(600){
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        border: none;
+    }
+}
+
+.p-tabmenu .p-tabmenu-nav .p-tabmenuitem.p-highlight .p-menuitem-link{
+    border-color: $green;
+    color: $green;
+}
+
+.p-tabmenu .p-tabmenu-nav .p-tabmenuitem .p-menuitem-link{
+    padding: 10px 25px;
+
+    @include media(600){
+        display: flex;
+        justify-content: center;
+        margin: 10px;
+        width: 100%;
+    }
+}
+
+.p-tabmenu .p-tabmenu-nav .p-tabmenuitem{
+    @include media(600){
+        width: 100%;
+    }
+}
+
+/* Switch */
+.p-inputswitch.p-inputswitch-checked .p-inputswitch-slider{
+    background-color: $green;
+}
+
+/* Iconos */
+.icon-to-go-icon:before {
+  content: "\e900";
+  color: #00c389;
+}
+.icon-info-green:before {
+  content: "\e901";
+  color: #bbd900;
+}
+.icon-pedidoUnico:before {
+  content: "\e902";
+  color: #989696;
+}
+.icon-delete-green:before {
+  content: "\e903";
+  color: #00c389;
+}
+.icon-saco-1:before {
+  content: "\e904";
+  color: #00c389;
+}
+.icon-map-pin-fill:before {
+  content: "\e905";
+  color: #fff;
+}
+.icon-edit-grey:before {
+  content: "\e906";
+  color: #555;
+}

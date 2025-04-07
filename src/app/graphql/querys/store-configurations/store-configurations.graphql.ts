@@ -1,0 +1,177 @@
+import { gql } from "apollo-angular";
+import { DocumentNode } from "graphql";
+
+const GET_STORE_CONFIGURATION: DocumentNode = gql`
+
+  query initApp($storeId: String!, $fiscalId: String!){
+
+  ConfigurationStore(appId:$storeId){
+    StoreName,
+    MeasurementUnitsDecimalSeparator,
+    MeasurementUnitsDecimalPlaces,
+    CurrencyDecimalSeparator,
+    LengthUnitsDecimalSeparator,
+    LengthUnitsDecimalPlaces,
+    CurrencyDecimalSeparator,
+    CurrencyDecimalPlaces,
+    StoreImage,
+    LanguageTemplate,
+    VolumenIdentifier,
+    MesuIdentifier,
+    languageIdentifier,
+    DateFormatIdentifier,
+    CurrenceIdentifier,
+    VolumeUnitsName
+  },
+  Menu(appId:$storeId){
+    Label,
+    IconClass,
+    RouterLink,
+    ShowInCenterMenu,
+    CenterMenuImageUrl,
+    CenterMenuAdditionalText
+  }
+  StyleType(appId:$storeId) {
+    StyleTypeName,
+    StyleValue,
+    StyleTypeDescription
+  }
+  FindClient(StoreId:$storeId, FiscalId:$fiscalId){
+    client {
+     ClientId
+      AccountId
+      RecipientId
+      FiscalId
+      ClientName
+      BusinessId
+      SegmentId
+      SubSegmentId
+      AccountName
+      AccountActive
+      AccountActiveName
+      ZoneId
+      SubZoneId
+      OriginId
+      Address
+      ZonesName
+      SubZonesName
+      OriginName
+      ZipCode
+      Latitude
+      Longitude
+      ClientActive
+      ClientActiveName
+      BusinessName
+      SegmentName
+      SubSegmentName
+      DeliveryTypeName
+      PaymentConditionName
+      DownloadName
+      IsPurchaseOrderRequired
+      RecipientActive
+      RecipientActiveName
+      PhoneNumber
+      TechnicalAvisorName
+      TechnicalAvisorEmail
+      SaleAdvisorsName
+      SaleAdvisorsEmail
+      ClientProfileId
+      LocationProfileId
+      RecipientProfileId
+      ClientServiceProfileId
+      AddressDetails
+    }
+  accounts {
+     ClientId
+      AccountId
+      RecipientId
+      FiscalId
+      ClientName
+      BusinessId
+      SegmentId
+      SubSegmentId
+      AccountName
+      AccountActive
+      AccountActiveName
+      ZoneId
+      SubZoneId
+      OriginId
+      Address
+      ZonesName
+      SubZonesName
+      OriginName
+      ZipCode
+      Latitude
+      Longitude
+      ClientActive
+      ClientActiveName
+      BusinessName
+      SegmentName
+      SubSegmentName
+      DeliveryTypeName
+      PaymentConditionName
+      DownloadName
+      IsPurchaseOrderRequired
+      RecipientActive
+      RecipientActiveName
+      PhoneNumber
+      TechnicalAvisorName
+      TechnicalAvisorEmail
+      SaleAdvisorsName
+      SaleAdvisorsEmail
+      ClientProfileId
+      LocationProfileId
+      RecipientProfileId
+      ClientServiceProfileId
+      AddressDetails
+  }
+    recipientDefault{
+     ClientId
+      AccountId
+      RecipientId
+      FiscalId
+      ClientName
+      BusinessId
+      SegmentId
+      SubSegmentId
+      AccountName
+      AccountActive
+      AccountActiveName
+      ZoneId
+      SubZoneId
+      OriginId
+      Address
+      ZonesName
+      SubZonesName
+      OriginName
+      ZipCode
+      Latitude
+      Longitude
+      ClientActive
+      ClientActiveName
+      BusinessName
+      SegmentName
+      SubSegmentName
+      DeliveryTypeName
+      PaymentConditionName
+      DownloadName
+      IsPurchaseOrderRequired
+      RecipientActive
+      RecipientActiveName
+      PhoneNumber
+      TechnicalAvisorName
+      TechnicalAvisorEmail
+      SaleAdvisorsName
+      SaleAdvisorsEmail
+      ClientProfileId
+      LocationProfileId
+      RecipientProfileId
+      ClientServiceProfileId
+      AddressDetails
+    }
+  }
+
+}
+`;
+
+export { GET_STORE_CONFIGURATION };

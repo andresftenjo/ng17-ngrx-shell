@@ -1,0 +1,62 @@
+<section class="contactus">
+  <h1 class="contactus__title">{{ 'contactUsPage.title' | translate }}</h1>
+  <form [formGroup]="contactForm">
+    <div class="contactus__column">
+      <p class="contactus__subTitle">{{ 'contactUsPage.description' | translate }}</p>
+      <div class="contactus__inputRow">
+        <div class="form-group">
+          <label for="nameContact">{{ 'contactUsPage.fieldName' | translate }} <span class="contactus__requiredSign">*</span></label>
+          <input id="nameContact" class="inputText" placeholder="Nombre" required formControlName="nameContact" maxlength="50">
+          <div *ngIf="contactForm.get('nameContact')?.touched && contactForm.get('nameContact')?.errors?.['required']" class="error">
+            {{ 'contactUsPage.requiredField' | translate }}
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="lastNameContact">{{ 'contactUsPage.fieldLastName' | translate }}</label>
+          <input id="lastNameContact" type="text" class="inputText" placeholder="Apellido" formControlName="lastNameContact" maxlength="50">
+        </div>
+      </div>
+      <div class="contactus__inputRow">
+        <div class="form-group">
+          <label for="phoneContact">{{ 'contactUsPage.fieldPhone' | translate }}</label>
+          <input id="phoneContact" type="text" class="inputText" placeholder="Telefono" formControlName="phoneContact" maxlength="20">
+        </div>
+        <div class="form-group">
+          <label for="emailContact">{{ 'contactUsPage.fieldEmail' | translate }} <span class="contactus__requiredSign">*</span></label>
+          <input id="emailContact" type="text" class="inputText" placeholder="Email" formControlName="emailContact" required maxlength="254">
+          
+          <div *ngIf="contactForm.get('emailContact')?.touched && contactForm.get('emailContact')?.errors?.['required']" class="error">
+            {{ 'contactUsPage.requiredField' | translate }}
+          </div>
+          <div *ngIf="contactForm.get('emailContact')?.touched && contactForm.get('emailContact')?.errors?.['email']" class="error">
+            {{ 'contactUsPage.invalidEmail' | translate }}
+          </div>
+        </div>
+      </div>
+      <div class="contactus__inputRow">
+        <div class="form-group">
+          <label for="commentsContact">{{ 'contactUsPage.fieldMessage' | translate }} <span class="contactus__requiredSign">*</span></label>
+          <textarea id="commentsContact" type="text" class="inputText" placeholder="" formControlName="commentsContact" maxlength="1000"></textarea>
+          <div *ngIf="contactForm.get('commentsContact')?.touched && contactForm.get('commentsContact')?.errors?.['required']" class="error">
+            {{ 'contactUsPage.requiredField' | translate }}
+         </div>
+        </div>
+      </div>
+      <div class="contactus__actions">
+        <button class="btn btn--primary" type="button" (click)="submitContact()" [disabled]="contactForm.invalid || !contactForm.dirty">{{ 'sendButtonLabel' | translate }}</button>
+      </div>
+    </div>
+    <div class="contactus__column">
+      <p class="contactus__subTitle">{{ 'contactUsPage.rightDescription' | translate }}</p>
+      <div class="contactus__contactBox">
+        <p>{{ 'contactUsPage.sendEmailTo' | translate }}:</p>
+        <p class="contactus__highlightText"><i class="pi pi-envelope"></i>argosstandalone&#64;argos.com</p>
+      </div>
+      <div class="contactus__contactBox">
+        <p>{{ 'contactUsPage.callUsTo' | translate }}:</p>
+        <p class="contactus__highlightText"><i class="pi pi-phone"></i>+300 527 894 568 571</p>
+      </div>
+    </div>
+  </form>
+</section>
+<p-toast />

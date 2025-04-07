@@ -1,0 +1,18 @@
+<header>
+    <app-app-header></app-app-header>
+</header>
+<div>
+    <app-app-menu></app-app-menu>
+    <app-mobile-menu></app-mobile-menu>
+</div>
+<main id="bodyMain" [ngClass]="{'shortMenu': openSideMenu}">
+    <div class="wrap-main" id="container-router-outlet">
+        <router-outlet></router-outlet> 
+    </div>
+</main>
+
+<footer id="bodyFooter" [ngClass]="{'shortMenu': openSideMenu}">
+    <app-app-footer></app-app-footer>
+</footer>
+
+<app-progress-bar></app-progress-bar>

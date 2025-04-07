@@ -1,0 +1,16 @@
+@import "../settings/fonts";
+
+* {
+    font-family: 'TradeGothic regular', 'icomoon';
+}
+
+body {
+    font-family: 'TradeGothic regular';
+    background-color: $white;
+    padding: 0;
+    margin: 0;
+}
+
+.title {
+    font-family: 'Integral CF';
+}

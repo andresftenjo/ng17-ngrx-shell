@@ -1,0 +1,185 @@
+@import "../../../../scss/variables";
+@import "../../../../scss/mixins";
+
+
+  /* Estilos para el footer general --- */
+  .argos-footer {
+
+    @include flex;
+    @include justify-content(space-between);
+
+    @include media(768) {
+
+        @include flex-column;
+        @include align-items(center);
+    }
+
+    p, span, a {
+        color: $grey;
+        font-size: 13px;
+
+        @include media(768) {
+
+            margin: 5px 0;
+            text-align: center;
+        }
+    }
+
+    &__box {
+
+      @include flex;
+      @include align-items(center);
+
+      @include media(768) {
+
+        @include flex-column;
+        @include align-items(center);
+    }
+
+      p, a {
+          padding: 0 10px;
+          cursor: pointer;
+          text-decoration: none;
+      }
+
+      span {
+        @include media(768) {
+
+            display: none;
+        }
+      }
+    }
+    &__buttons {
+        display: flex;
+        justify-content: flex-end;
+        padding-top: 1rem;
+    }
+  }
+
+:host ::ng-deep{
+  .aone-btns {
+    padding: 30px 0 30px;
+
+    .p-button-label{
+      display: none;
+    }
+
+    @include flex;
+    @include justify-content(center);
+
+    &--flex-end{
+        @extend .aone-btns;
+        @include justify-content(end);
+    }
+
+    &--multiple {
+
+        @include flex-wrap;
+
+        .aone-btns__btn {
+
+            @include media(600) {
+                margin: 6px 0;
+                width: 100%;
+            }
+        }
+    }
+
+    &__btn {
+        height: 36px;
+        min-width: 121px;
+        padding: 0 16px;
+        margin: 0 4px;
+        border: 0;
+        border-radius: 4px;
+        color: $txt;
+        font-size: 16px;
+        text-transform: uppercase;
+        text-decoration: none;
+        cursor: pointer;
+        transition: background-color .2s ease;
+        text-decoration: none;
+
+        @include flex;
+        @include justify-content(center);
+        @include align-items(center);
+
+        @include media(768){
+            font-size: 14px;
+        }
+
+        &--ok {
+            background-color: $darkBlue;
+            color: $white;
+
+            &:hover {
+                background-color: darken($darkBlue, 5%);
+                color: $white;
+                text-decoration: none;
+            }
+
+            .right {
+                color: $green;
+                padding-left: 10px;
+            }
+        }
+
+        &--on {
+            background-color: $secondary;
+            color: $white;
+
+            &:hover {
+                background-color: darken($secondary, 5%);
+                color: $white;
+                text-decoration: none;
+            }
+        }
+
+        &--off {
+            background-color: $btnNo;
+            color: $white;
+
+            &:hover {
+                background-color: darken($btnNo, 5%);
+                color: $white;
+                text-decoration: none;
+            }
+        }
+
+        &--cancel {
+            background-color: #585858;
+            color: $white;
+
+            &:hover {
+                background-color: darken(#585858, 5%);
+                color: $white;
+                text-decoration: none;
+            }
+        }
+
+    }
+
+    &--modal {
+        padding: 30px 0 10px;
+    }
+    }
+
+    .p-dialog {
+        width: 85vw;
+        .p-dialog-header {
+            text-align: left;
+        }
+        .p-dialog-content {
+            text-align: left; 
+            font-size: 15px;
+        }
+        .section {
+            h2 {
+                font-size: 17px;
+            }
+        }
+        .p-dialog-header-close-icon {
+            color: var(--titles-color);
+        }
+    }
+}

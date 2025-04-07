@@ -1,0 +1,82 @@
+
+<div class="mobile-menu" [ngClass]="expandedManu ? 'expanded' : ''" #mobileMenu (click)="handleMenu($event)">
+  <ul class="mobile-menu__ul" *ngIf="!expandedManu">
+    @for (item of menuOptions$; track $index) {
+      @if(item.featuredOption) {
+        <li class="mobile-menu__element" routerLinkActive="activeMenu">
+          <a *ngIf="item.routerLink; else externalLink" routerLink="{{item.routerLink}}">
+            <span [class]="item.iconClass" class="icon"></span>
+            <p class="description">{{ item.label === "Home" ? "Principal" : item.label }}</p>
+          </a>
+          <ng-template #externalLink>
+            <a target="_blank" href="{{item.routerLink}}">
+              <span [class]="item.iconClass" class="icon"></span>
+              <p class="description">{{ item.label }}</p>
+            </a>
+          </ng-template>
+        </li>
+      }
+    }
+    <li class="mobile-menu__element">
+      <a href="javascript:void(0)" (click)="expandMobileMenu()">
+        <span class="icon">
+          <i class="pi pi-bars"></i>
+        </span>
+        <p class="description">Menu</p>
+      </a>
+    </li>
+  </ul>
+
+  <div #mobileMenuDragger class="mobile-menu__sidePanel" [ngClass]="expandedManu ? 'expanded' : ''">
+    <div class="mobile-menu__sidePanelTop" >
+      <div class="mobile-menu__profileSection">
+          <img [src]="userProfileImage" class="link-user-box__userImage" alt="" /> 
+          <div>
+            <h3>Diana Patricia López</h3>
+            <a href="#">Editar mi perfil</a>
+          </div>
+          <a routerLink="/signoff" class="mobile-menu__signOff" [pTooltip]="'logOutLabel' | translate" tooltipPosition="bottom">
+            <i class="link-user-img pi pi-power-off"></i>
+          </a>
+      </div>
+      
+      <section class="mobile-menu-accounts" (click)="openAccountSelector()" role="button" aria-label="">
+        <div class="mobile-menu-accounts__container">
+          <div class="mobile-menu-accounts__circleShape">
+            <span class="mobile-menu-accounts__circleShape__container">
+              <!-- <span class="mobile-menu-accounts__circleShape__circleLetter">C</span>
+              <span class="mobile-menu-accounts__circleShape__circleLetter">C</span> -->
+              <i class="pi pi-user"></i>
+            </span>
+          </div>
+          <div class="mobile-menu-accounts__description">
+            <p class="mobile-menu-accounts__description__text">Depositos ABC</p>
+            <p class="mobile-menu-accounts__description__text">CL 143 50 27 BRR PRADO PINZON</p>
+          </div>
+        </div>
+      </section>
+    </div>
+    <nav class="mobile-menu__navigation">
+      @for (item of menuOptions$; track $index) {
+        <!-- <a>{{ item.label }}</a> -->
+        <div class="mobile-menu__link" routerLinkActive="activeMenu">
+          <a *ngIf="item.routerLink; else externalLink" routerLink="{{item.routerLink}}" (click)="closeMobileMenu()">
+            <span [class]="item.iconClass" class="icon"></span>
+            <p class="description">{{ item.label === "Home" ? "Principal" : item.label }}</p>
+          </a>
+          <ng-template #externalLink>
+            <a target="_blank" href="{{item.routerLink}}">
+              <span [class]="item.iconClass" class="icon"></span>
+              <p class="description">{{ item.label }}</p>
+            </a>
+          </ng-template>
+        </div>
+      }
+    </nav>
+    <div class="mobile-menu__closeButton">
+      <button (click)="closeMobileMenu()">
+        <span class="icon"><i class="pi pi-times-circle"></i></span>
+      </button>
+    </div>
+  </div>
+</div>

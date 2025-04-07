@@ -1,0 +1,64 @@
+<header class="header-main" id="headerTop">
+  <div class="header-content">
+    <div class="header-content__account">
+      <div class="header-content__account__box">
+        <p class="header-content__account__box__title">
+          <img
+            src="https://iventiv.com/sites/default/files/summit_materials_0.png"
+            width="105px"
+            alt="Burger menu"
+          />
+        </p>
+      </div>
+    </div>
+
+    <div class="header-content__box">
+      <div class="header-content__brand-logo"></div>
+      <div class="header-content__box__cage">
+        <div class="header-content__box__user">
+          <div class="link-user-box flex align-items-center">
+            <a routerLink="/external/myprofile" class="link-user-box__userName">
+              @defer { @if(userProfileImage){
+              <!-- <img [src]="userProfileImage" class="link-user-box__userImage" alt="" /> -->
+              <i class="pi pi-user"></i>
+              } } @placeholder() {
+              <p-skeleton shape="circle" size="2rem" styleClass=""></p-skeleton>
+              }
+              <span class="link-user-box__userNameLabel">{{
+                currentUser
+                  ? currentUser.firstName + " " + currentUser.lastName
+                  : ""
+              }}</span>
+            </a>
+          </div>
+          <a
+            routerLink="/signoff"
+            class="link-user-box__signOff flex align-items-center"
+            [pTooltip]="'logOutLabel' | translate"
+            tooltipPosition="bottom"
+          >
+            <i class="link-user-img pi pi-power-off"></i>
+          </a>
+        </div>
+        <!-- Oculto por solicitud -->
+        <div class="header-content__box__conf d-none">
+          <div class="header-content__box__conf__flags">
+            @defer { @if(countryIcon){
+            <img
+              [src]="countryIcon"
+              class="header-content__box__conf__flagsIcon"
+              alt=""
+            />
+            } } @placeholder() {
+            <p-skeleton
+              shape="circle"
+              size="2rem"
+              styleClass="mr-1 header-content__box__conf__flagsIcon"
+            ></p-skeleton>
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>

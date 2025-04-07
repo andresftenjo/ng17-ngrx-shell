@@ -1,0 +1,74 @@
+
+
+<section class="menu-main" id="menuMain" [ngClass]="{'shortMenu': openSideMenu}">
+
+  <div class="menu-main__group">
+
+    <div class="header-content__icon" id="iconMenu" (click)="onClickToggleMenu($event)">
+      <div class="header-content__icon--icon"></div>
+      <div class="header-content__icon--icon"></div>
+    </div>
+    <div class="menu-main__logo">
+      <img src="https://iventiv.com/sites/default/files/summit_materials_0.png" width="105px" alt="Burger menu">
+    </div>
+    <div class="menu-main__client-name">
+      <p>Nombre cliente</p>
+    </div>
+    <div class="menu-main__clientbox" role="button" (click)="showAccounts($event)">
+      <div class="menu-main__clientbox__title">
+        <span>{{ 'accountSelectLabel' | translate }} <i class="pi pi-angle-down"></i></span>
+      </div>
+      <div class="menu-main__clientbox__storeSelector">
+        @if(loadInitial){
+          <p-skeleton width="167px" height="70px" />
+        }@else{
+          <span class="icon-pinUbicacion-1"></span>
+          <div class="menu-main__clientbox__storeSelector__group">
+            <p class="menu-main__clientbox__storeSelector__group__title">
+              {{ accountSelect?.AccountName }}
+            </p>
+          </div>
+          <div class="menu-main__clientbox__storeSelector__group">
+            <p class="menu-main__clientbox__storeSelector__group__subtitle">
+              {{ recipientSelect?.Address }}
+            </p>
+          </div>
+        }
+      </div>
+    </div>
+
+    <nav class="menu-content" id="menuContent">
+      @if(loadInitial){
+        <div class="skeleton">
+          <p-skeleton class="skeleton__item-menu" shape="circle" width="40px" height="40px" />
+          <p-skeleton class="skeleton__item-menu--second" width="130px" height="20px" />
+        </div>
+        <div class="skeleton">
+          <p-skeleton class="skeleton__item-menu" shape="circle" width="40px" height="40px" />
+          <p-skeleton class="skeleton__item-menu--second" width="130px" height="20px" />
+        </div>
+        <div class="skeleton">
+          <p-skeleton class="skeleton__item-menu" shape="circle" width="40px" height="40px" />
+          <p-skeleton class="skeleton__item-menu--second" width="130px" height="20px" />
+        </div>
+      }@else{
+        <ul class="menu-content__main">
+          <li *ngFor="let item of menuOptions" routerLinkActive="activeMenu">
+            <a *ngIf="item.RouterLink;" routerLink="{{item.RouterLink}}">
+              <span class="menu-content__main__optionIcon" [class]="item.IconClass"></span>
+              <span class="menu-content__main__optionLabel">{{ item.Label }}</span>
+            </a>
+          </li>
+        </ul>
+      }
+      <div class="menu-content__footer">
+      </div>
+    </nav>
+  </div>
+</section>
+
+@if (!loadInitial) {
+  <app-account-selector>
+  </app-account-selector>
+}
+

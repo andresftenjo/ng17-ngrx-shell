@@ -1,0 +1,438 @@
+
+@import "../../../../assets/scss/settings/variables";
+@import "../../../../scss/mixins";
+
+// -------------------------------------fin menu desplegable
+
+// ------------------------------------- inicio section menu nav
+
+.mobile-menu {
+    display: none;
+    background-color: #FAFAFA;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: auto;
+    z-index: 100;
+    padding: 0px 10px;
+    border-top: 1px solid #BDC5CD;
+    width: 100%;
+    /* transition: transform 0.3s ease-in-out; /* Smooth opening/closing animation */
+    &.expanded {
+        position: relative;
+        height: 100vh;
+        top: -55px;
+        background: rgb(0 0 0 / 8%);
+    }
+    &__ul {
+        display: flex;
+        padding: 0;
+        margin: 0.8rem 0;
+        display: -o-flex;
+        display: -moz-flex;
+        display: -ms-flex;
+        justify-content: space-around;
+        -moz-justify-content: space-around;
+        -o-justify-content: space-around;
+        -ms-justify-content: space-around;
+        -webkit-justify-content: space-around;
+        align-items: center;
+        -moz-align-items: center;
+        -o-align-items: center;
+        -ms-align-items: center;
+        -webkit-align-items: center;
+        overflow-x: auto;
+        white-space: nowrap;
+        width: 100%;
+
+        &__list {
+            @include media(480) {
+                &:first-of-type {
+                    margin-left: 4rem;
+                }
+            }
+            
+            flex: 0 0 auto;
+            list-style: none;
+            text-align: center;
+            position: relative;
+            margin-right: 1.3rem;
+            .icon {
+                max-height: 29px;
+                .pi {
+                    font-size: 2rem;
+                    color: #9ea2a2;
+                }
+            }
+            .description {
+                color: #9EA2A2;
+                font-size: 11px;
+                margin: 0;
+                max-width: 70px;
+                white-space: normal;
+                overflow-wrap: break-word;
+            }
+
+            &.activeMenu {
+                .description {
+                    color: #071D49;
+                }
+            }
+        }
+        .pi {
+            font-size: 30px;
+            color: $softGrey;
+        }
+    }
+
+    &__sidePanel {
+        width: 90vw;
+        height: 100%; 
+        position: fixed; 
+        top: 0;
+        left: -100vw;
+        box-shadow: 5px 0px 5px 2px rgba(166,166,166,0.17);
+        -webkit-box-shadow: 5px 0px 5px 2px rgba(166,166,166,0.17);
+        -moz-box-shadow: 5px 0px 5px 2px rgba(166,166,166,0.17);
+        transition: transform 0.3s ease-in-out;
+        background-color: $white;
+        z-index: 101;
+        &.expanded {
+            transform: translateX(100vw);
+        }
+    }
+    &__element {
+
+        &.activeMenu {
+            .cart-icon-menu {
+                content: url(/assets/images/icons/cart-icon-blue.svg);
+            }
+            .orders-icon-menu {
+                content: url(/assets/images/icons/orders-icon-active-featured-mobile.svg);
+            }
+            .description {
+                color: #071D49;
+                font-weight: bold;
+            }
+        }
+        .description {
+            font-size: 11px;
+            margin: 0;
+            color: $softGrey;
+        }
+        a {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        span {
+            max-height: 31px;
+        }
+    }
+
+    &__navigation {
+        width: 95%;
+        padding-top: 1rem;
+    }
+    &__link {
+        &.activeMenu {
+            a {
+                background-color: $titlesStore;
+                color: $buttonsFontStore;
+                border-radius: 4px;
+                .description {
+                    color: $buttonsFontStore;
+                }
+            }
+        }
+       a {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-decoration: none;
+            width: 100%;
+            padding: 0.2rem 0.7rem;
+            span {
+                display: block;
+                width: 29px;
+                height: 29px;
+            }
+            .description {
+                color: $silverTlt;
+            }
+       }
+    }
+    &__signOff {
+        background-color: transparent !important;
+        .pi {
+            font-size: 30px;
+            color: $primaryStore;
+        }
+    }
+    &__profileSection {
+        display: flex;
+        width: 100%;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.5rem 1rem;
+        .pi-user {
+            font-size: 21px;
+            color: $titlesStore;
+            border-radius: 50%;
+            border: 2px solid;
+            padding: 0.1rem;
+        }
+        img {
+            height: 40px;
+            border: 2px solid $stroke;
+            border-radius: 50%;
+            width: 40px;
+        }
+        h3 {
+            font-size: 15px;
+            margin: 0;
+            color: $titlesStore;
+        }
+        a {
+            padding: 0.2rem;
+            color: $buttonsFontStore;
+            background-color: $primaryStore;
+            font-size: 13px;
+            border-radius: 4px;
+        }
+        div {
+            flex: 3;
+            margin-right: 2rem;
+        }
+    }
+
+    &__closeButton {
+        position: absolute;
+        bottom: 2rem;
+        left: 50%;
+        transform: translateX(-50%);
+        button {
+            border: none;
+            background-color: transparent;
+        }
+        .pi {
+            font-size: 30px;
+            color: $primaryStore;
+        }
+    }
+
+    &__sidePanelTop {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        background-color: $background-lite;
+        padding: 0.5rem 0;
+    }
+    &-accounts {
+        align-items: center;
+        width: 100%;
+        border-top: 2px solid $stroke;
+        padding-top: 0.3rem;
+        &__container {
+            display: flex;
+            align-items: center;        
+            margin: auto;
+            width: 95%;
+            min-height: 46px;
+        }
+        &__circleShape {
+            width: 30px;
+            background-color: $primaryStore;
+            color: white;
+            height: 30px;
+            text-align: center;
+            line-height: 30px;
+            border-radius: 25px;
+            margin-left: 10px;
+        }
+        &__description {
+            margin-left: 0.5rem;
+            &__text {
+                margin: 0;
+                color: var(--bodyFont-color);
+                
+                &:first-of-type {
+                    font-weight: bold;
+                    color: $titlesStore;
+                    font-size: 15px;
+                }
+                &:last-of-type {
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+    @include media(1050) {
+        display: block;
+    }
+}
+
+
+/* --------  Iconos para el menu ---------------------------------- */
+.home-icon,
+.activeContentMenu li:not(.activeMenu) .home-icon {
+    content: url("/assets/images/icons/home-icon.svg");
+}
+
+.activeMenu .home-icon {
+    content: url("/assets/images/icons/home-icon-active-mobile.svg");
+}
+
+.general-settings,
+.activeContentMenu li .general-settings {
+    content: url("/assets/images/icons/settings.svg");
+}
+
+.activeMenu .general-settings {
+    content: url("/assets/images/icons/settings-active.svg");
+}
+
+.tax-icon,
+.activeContentMenu li .tax-icon {
+    content: url("/assets/images/icons/taxes.svg");
+}
+
+.activeMenu .tax-icon {
+    content: url("/assets/images/icons/taxes-active.svg");
+}
+
+.unload-icon,
+.activeContentMenu li .unload-icon {
+    content: url("/assets/images/icons/unload.svg");
+}
+
+.activeMenu .unload-icon {
+    content: url("/assets/images/icons/unload-active.svg");
+}
+
+.freight-icon,
+.activeContentMenu li .freight-icon {
+    content: url("/assets/images/icons/freight.svg");
+}
+
+.activeMenu .freight-icon {
+    content: url("/assets/images/icons/freight-active.svg");
+}
+
+.discounts-icon,
+.activeContentMenu li .discounts-icon {
+    content: url("/assets/images/icons/discounts.svg");
+}
+
+.activeMenu .discounts-icon {
+    content: url("/assets/images/icons/discounts-active.svg");
+}
+
+.customer-material-icon,
+.activeContentMenu li .customer-material-icon {
+    content: url("/assets/images/icons/customer-materal.svg");
+}
+
+.activeMenu .customer-material-icon {
+    content: url("/assets/images/icons/customer-materal-active.svg");
+}
+
+/* */
+.home-icon-menu,
+.activeContentMenu li .home-icon-menu {
+    content: url("/assets/images/icons/home-icon-menu.svg");
+}
+
+.activeMenu .home-icon-menu {
+    content: url("/assets/images/icons/home-icon-active-mobile.svg");
+}
+
+.cart-icon-menu,
+.activeContentMenu li .cart-icon-menu {
+    content: url("/assets/images/icons/cart-icon-menu.svg");
+}
+
+.activeMenu .cart-icon-menu {
+    content: url("/assets/images/icons/cart-icon-active-mobile.svg");
+}
+
+.orders-icon-menu,
+.activeContentMenu li .orders-icon-menu {
+    content: url("/assets/images/icons/orders-icon-menu.svg");
+}
+
+.activeMenu .orders-icon-menu {
+    content: url("/assets/images/icons/orders-icon-active-mobile.svg");
+}
+
+.payments-icon-menu,
+.activeContentMenu li .payments-icon-menu {
+    content: url("/assets/images/icons/payments-icon-menu.svg");
+}
+
+.activeMenu .payments-icon-menu {
+    content: url("/assets/images/icons/payments-icon-active.svg");
+}
+
+.bill-icon-menu,
+.activeContentMenu li .bill-icon-menu {
+    content: url("/assets/images/icons/bill-icon-menu.svg");
+}
+
+.activeMenu .bill-icon-menu {
+    content: url("/assets/images/icons/bill-icon-active.svg");
+}
+
+.piechart-icon-menu,
+.activeContentMenu li .piechart-icon-menu {
+    content: url("/assets/images/icons/piechart-icon-menu.svg");
+}
+
+.activeMenu .piechart-icon-menu {
+    content: url("/assets/images/icons/piechart-icon-active.svg");
+}
+
+.thumbsup-report-icon-menu,
+.activeContentMenu li .thumbsup-report-icon-menu {
+    content: url("/assets/images/icons/thumbsup-report-icon-menu.svg");
+}
+
+.activeMenu .thumbsup-report-icon-menu {
+    content: url("/assets/images/icons/thumbsup-report-icon-active.svg");
+}
+
+.myprofile-icon-menu,
+.activeContentMenu li .myprofile-icon-menu {
+    content: url("/assets/images/icons/myprofile-icon-menu.svg");
+}
+
+.activeMenu .myprofile-icon-menu {
+    content: url("/assets/images/icons/myprofile-icon-active-mobile.svg");
+}
+
+.contactus-icon-menu,
+.activeContentMenu li .contactus-icon-menu {
+    content: url("/assets/images/icons/contactus-icon-menu.svg");
+}
+.activeMenu .contactus-icon-menu {
+    content: url("/assets/images/icons/contactus-icon-menu-active-mobile.svg");
+}
+
+.notificationbell-icon-menu,
+.activeContentMenu li .notificationbell-icon-menu {
+    content: url("/assets/images/icons/notificationbell-icon-menu.svg");
+}
+
+.activeMenu .notificationbell-icon-menu {
+    content: url("/assets/images/icons/notificationbell-icon-active.svg");
+}
+
+.chat-icon-menu,
+.activeContentMenu li .chat-icon-menu {
+    content: url("/assets/images/icons/chat-icon-menu.svg");
+}
+
+.activeMenu .chat-icon-menu {
+    content: url("/assets/images/icons/chat-icon-active.svg");
+}

@@ -1,0 +1,103 @@
+@import "../../../../scss/mixins";
+@import "../../../../assets/scss/settings/variables";
+
+.contactus {
+    &__title {
+        font-family: Integral CF;
+        font-weight: bold;
+        font-size: 28px;
+        color: $titlesStore;
+        margin-top: 0;
+    
+        @include media(900){
+            font-size: 20px;
+        }
+    }
+    form {
+        background-color: $background-lite;
+        padding: 2rem 3rem;
+        display: flex;
+        gap: 2rem;
+    }
+    &__inputRow {
+        display: flex;
+        gap: 1rem;
+        margin: 1.5rem 0;
+        div {
+            flex: 1;
+        }
+        textarea {
+            min-height: 130px;
+            padding: 0.5rem;
+        }
+    }
+    &__column {
+        &:first-of-type {
+            flex: 2;
+        }
+        &:last-of-type {
+            flex: 1;
+        }
+    }
+    &__subTitle {
+        margin-top: 0;
+        font-size: 22px;
+        font-weight: 700;
+        text-align: center;
+        color: $titlesStore;
+    }
+    &__contactBox {
+        margin-bottom: 2rem;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        padding-top: 1rem;
+        font-size: 16px;
+        p {
+            margin: 0;
+            .pi {
+                font-size: 20px;
+                font-weight: 700;
+                margin-right: 1rem;
+            }
+        }
+    }
+    &__actions {
+        .btn {
+            text-transform: uppercase;
+            &[disabled]{
+                background-color: $greyDefaultBorder;
+                color: $txt;
+                pointer-events: none;
+            }
+        }
+    }
+    &__highlightText {
+        color: $primaryStore;
+    }
+    &__requiredSign {
+        color: $titlesStore;
+    }
+
+    @include media(768) {
+        form {
+            flex-direction: column;
+            padding: 1rem;
+        }
+        &__column {
+            &:first-of-type {
+                flex: 1;
+            }
+        }
+        &__inputRow {
+            flex-direction: column;
+            margin: 1rem 0;
+        }
+        &__actions {
+            .btn {
+                width: 100%;
+            }
+        }
+    }
+}

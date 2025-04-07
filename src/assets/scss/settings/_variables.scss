@@ -1,0 +1,63 @@
+@import "../tools/mixins";
+
+/* ---- Variables de color ---- */
+/* Primarios */
+$green:          #C4D600;
+$secondary:      #00C389;
+$darkBlue:       #071D49;
+/* Secundarios */
+$greentwo:       #A2E239;
+$otherGreen:     #6CC24A;
+$oldColor:       #4688a3;
+$blue:           #006fb8;
+$yellow:         #F0B323;
+$orange:         #FF6A13;
+$red:            #EB5757;
+/* Neutros */
+$white:          #FFFFFF;
+$background-lite:#f3f3f3;
+$silver:         #e3e3e3;
+$silverTwo:      #616161;
+$silverThree:    #9f9f9f;
+$silverFour:     #f7f7f7;
+$silverFive:     #8a8a8a;
+$silverTlt:      #7b7b7b;
+$lightGrey:      #EFEFEF;
+$stroke:         #DFE0EB;
+$softGrey:       #9EA2A2;
+$softGrey2:      #C7C9C7;
+$grey:           #898D8D;
+$c4:             #c4c4c4;
+$txt:            #585858;
+$greyDefaultBorder:#d1d5db;
+/* -------------------------- */
+
+$primaryStore: var(--primary-color);
+$secondaryStore: var(--secondary-color);
+$titlesStore: var(--titles-color);
+$alertsStore: var(--alerts-color);
+$bodyFontStore: var(--bodyFont-color);
+$buttonsFontStore: var(--buttonsFont-color);
+$borderHighlightStore: var(--borderHighlight-color);
+
+$breakpoints: (
+    1500:  1500px,
+    1320:  1320px,
+    1250:  1250px,
+    1200:  1200px,
+    1100:  1100px,
+    1050:  1050px,
+    1000:  1000px,
+    992:   992px,
+    991:   991px,
+    768:   768px,
+    600:   600px,
+    576:   576px,
+    550:   550px,
+    500:   500px,
+    420:   420px,
+    400:   400px,
+    350:   350px,
+    320:   320px
+);
+/* -------------------------- */

@@ -1,0 +1,55 @@
+@import "../settings/variables";
+
+.radiobox {
+    display: flex;
+    border-radius: 4px;
+    overflow: hidden;
+    font-size: 15px;
+    font-weight: 700;
+    input[type="radio"] {
+        display: none;
+    }
+
+    label {
+        padding: 0.8rem;
+        cursor: pointer;
+        border-radius: 4px;
+        background-color: $background-lite;
+        display: flex;
+        gap: 0.5rem;
+        align-items: center;
+        margin: 2px;
+        padding-right: 2rem;
+        &:hover {
+            background-color: $silverFour;
+        }
+    }
+
+    input[type="radio"]:checked + label {
+        color: $primaryStore;
+        border: 2px solid $primaryStore;
+
+        .radiobox__radioButton:after {
+            content: "";
+            position: absolute;
+            background-color: $borderHighlightStore;
+            height: 10px;
+            width: 10px;
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%); 
+        }
+    }
+
+    &__radioButton {
+        height: 20px;
+        width: 20px;
+        background-color: $white;
+        border: 1px solid $softGrey;
+        border-radius: 50%;
+        box-shadow: 0 0 3px $softGrey2;
+        position: relative;
+        padding-right: 1rem;
+    }
+}

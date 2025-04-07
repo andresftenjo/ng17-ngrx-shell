@@ -1,0 +1,70 @@
+@import "../../../../assets/scss/settings/variables";
+@import "../../../../scss/mixins";
+
+.notfoundpage {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    &__column {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        flex-direction: column;
+    }
+    &__leftImage {
+        max-height: 350px;
+    }
+    &__description {
+        height: 405px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        background-color: $silverTwo;
+        gap: 2rem;
+        color: $white;
+        border-radius: 4px;
+        padding: 3rem;
+        text-align: center;
+        align-items: center;
+        h1 {
+            font-size: 49px;
+            max-width: 500px;
+            font-weight: 700;
+            margin: 0;
+            color: $white;
+        }
+        p {
+            font-size: 25px;
+            margin: 0;
+            max-width: 490px;
+        }
+    }
+    &__chip {
+        display: flex;
+        padding: 2rem;
+        font-size: 64px;
+        font-weight: 700;
+        color: $silverTwo;
+        padding: 6px 48px;
+        height: auto;
+        border-radius: 50px;
+        background-color: $white;
+    }
+
+    @include media(768){
+        flex-direction: column-reverse;
+        margin: 1rem;
+
+        &__column {
+            height: auto;
+        }
+        &__description {
+            height: auto;
+            padding: 1rem;
+        }
+        &__leftImage {
+            max-height: 300px;
+        }
+    }
+}

@@ -1,0 +1,36 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import "primeng/resources/themes/lara-light-blue/theme.css";
+@import "primeng/resources/primeng.css";
+@import "primeicons/primeicons.css";
+@import "./scss/variables";
+@import "./scss/mixins";
+@import "./store-global-styles.scss";
+
+@import "./assets/scss/settings/variables";
+
+/* Global fonts */
+@import "./assets/scss/settings/fonts";
+
+/* Global mixins */
+@import "./assets/scss/tools/mixins";
+
+@import "./assets/scss/generic/reset";
+
+@import "./assets/scss/generic/custom";
+
+@import "./assets/scss/objects/buttons";
+
+@import "./assets/scss/objects/modals";
+
+@import "./assets/scss/objects/tooltip";
+
+@import "./assets/scss/objects/dialogs";
+
+@import "./assets/scss/objects/radiobox";
+
+@import "./assets/scss/objects/radioimagebox";
+
+@import "./assets/scss/objects/forms";
+
+@import "./assets/scss/utilities/utilities";

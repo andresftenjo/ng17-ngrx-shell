@@ -1,0 +1,134 @@
+
+/* Change accounts modal */
+
+.mdal {
+    &__change-account {
+        .p-dropdown {
+            width: 100%;
+            height: 100%;
+            max-height: 75px;
+            border-radius: 6px;
+            transition: all .2s ease;
+            border-width: 2px;
+
+            &:not(.p-disabled):hover {
+                border-color: $softGrey;
+                border-width: 2px;
+            }
+
+            .p-dropdown-label {
+                color: $txt;
+                font-size: 20px;
+                font-weight: 500;
+                padding: 10px;
+                position: relative;
+
+                @include flex;
+                @include align-items(center);
+
+                &::before {
+                content: "Cuenta";
+                color: $txt;
+                font-size: 14px;
+                font-weight: 400;
+                position: absolute;
+                top: 4px;
+                left: 10px;
+                }
+            }
+
+            .p-dropdown-trigger {
+                position: relative;
+
+                &::before { 
+                content: "";
+                /* background-image: url("~/assets/images/icons/user-change-input.svg"); */
+                background-repeat: no-repeat;
+                background-size: contain;
+                width: 20px;
+                height: 30px;
+                position: absolute;
+                top: 29px;
+                left: -19px;
+                }
+
+                .p-dropdown-trigger-icon {
+                position: absolute;
+                top: 12px;
+                right: 12px;
+                font-size: 12px;
+                }
+            }
+
+            .p-dropdown-panel {
+
+                .p-dropdown-items-wrapper {
+
+                    .p-dropdown-items {
+
+                    .p-dropdown-item {
+                        min-height: 50px;
+                        border-top: 1px solid lightgrey;
+
+                        @include flex;
+                        @include align-items(center);
+
+                        span {
+                        font-weight: 500;
+
+                        @include media(600) {
+                            max-width: 250px;
+                            white-space: break-spaces;
+                        }
+
+                        @include media(350) {
+                            max-width: 150px;
+                        }
+                        }
+
+                        &.p-highlight {
+                        background: #EFEFEF;
+
+                        &::after {
+                            /* background-image: url("~/assets/images/icons/radio-checked-icon.svg"); */
+                        }
+                        }
+
+                        &::before {
+                        content: "";
+                        /* background-image: url("~/assets/images/icons/user-change-input.svg"); */
+                        background-repeat: no-repeat;
+                        background-size: contain;
+                        width: 15px;
+                        height: 23px;
+                        position: absolute;
+                        top: 13px;
+                        right: 50px;
+                        }
+
+                        &::after {
+                        content: "";
+                        /* background-image: url("~/assets/images/icons/radio-icon.svg"); */
+                        background-repeat: no-repeat;
+                        background-size: contain;
+                        width: 18px;
+                        height: 19px;
+                        position: absolute;
+                        top: 16px;
+                        right: 16px;
+                        }
+
+                        &:not(.p-highlight):not(.p-disabled):hover {
+                        background: darken(#EFEFEF, 2%);
+                        }
+                    }
+
+                    }
+
+                }
+            }
+        }
+    }
+}
+
+.p-dropdown-item { font-size: 13px; }
